@@ -1,0 +1,51 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">This is the menu content.</ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="text-center">
+        <img src="../../../assets/credit-card.png" />
+      </div>
+      <form>
+        <div>
+          <ion-label position="stacked">From Bank Account </ion-label>
+          <ion-select interface="action-sheet" placeholder="Select account number">
+            <ion-select-option value="apples">******3467364</ion-select-option>
+            <ion-select-option value="oranges">******672922</ion-select-option>
+            <ion-select-option value="bananas">*******22322</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="To-bank-account">
+          <ion-label position="stacked">To Bank Account</ion-label>
+          <ion-input placeholder="Enter account number"></ion-input>
+        </div>
+        <div>
+          <ion-label position="stacked">Amount</ion-label>
+          <ion-input placeholder="Enter amount"></ion-input>
+        </div>
+
+        <div>
+          <ion-label position="stacked">Message</ion-label>
+          <ion-textarea placeholder="Type message here ..."></ion-textarea>
+        </div>
+        <div class="text-center btn-cont">
+          <a routerLink='/scanner'> Send </a> or <a routerLink="/transactions"> Cancel</a>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</ion-app>

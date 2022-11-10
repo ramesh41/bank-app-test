@@ -1,0 +1,44 @@
+.scan-code-box {
+  padding: 70px 60px 25px 60px;
+  .scan-label {
+    font-size: 14px;
+    line-height: 50px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+  }
+  .customer-box {
+    margin: 15px;
+    .customer-name {
+      margin: 0;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: white;
+      font-weight: bold;
+    }
+    .customer-mail {
+      margin: 0;
+      color: white;
+      line-height: 25px;
+    }
+  }
+}
+.barcode {
+  padding: 40px;
+  .try-barcode-label {
+    margin: 0;
+    span {
+      text-transform: uppercase;
+    }
+  }
+  p{
+    margin: 0;
+  }
+  .qr-code-text{
+    margin: 20px;
+
+  }
+  .bank-account {
+    cursor: pointer;
+  }
+}

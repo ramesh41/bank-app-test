@@ -1,0 +1,43 @@
+<section class="sub-header text-center">
+  <div class="scan-code-box">
+    <label class="scan-label">Scan this QA Code</label>
+    <qrcode
+      [qrdata]="scanData"
+      [allowEmptyString]="true"
+      [ariaLabel]="'QR Code image with the following content...'"
+      [cssClass]="'center'"
+      [colorDark]="'#000000ff'"
+      [colorLight]="'#ffffffff'"
+      [elementType]="'canvas'"
+      [errorCorrectionLevel]="'M'"
+      [imageHeight]="50"
+      [imageWidth]="50"
+      [margin]="3"
+      [scale]="1"
+      [title]="'A custom title attribute'"
+      [width]="150"
+    ></qrcode>
+    <div class="customer-box">
+      <p class="customer-name">Ramesh Bhardwaj</p>
+      <p class="customer-mail">ramesh.synclovis41@gmail.com</p>
+    </div>
+  </div>
+</section>
+<section class="text-center">
+  <div class="barcode">
+    <p class="try-barcode-label">Try <span>Barcode</span></p>
+    <div class="barcode-element">
+      <ngx-barcode
+        [bc-value]="accountNum"
+        [bc-display-value]="true"
+        [bc-width]="1.5"
+        [bc-height]="50"
+        [bc-font-size]="13"
+      ></ngx-barcode>
+    </div>
+    <div class="qr-code-text">
+      <p>Can't scan this QR Code?</p>
+      <p>Try <a class="bank-account" routerLink='/fund-transfer'> Bank Account</a></p>
+    </div>
+  </div>
+</section>

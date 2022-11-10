@@ -1,0 +1,35 @@
+$background-color: rgb(44 69 120);
+
+.banking-container {
+  padding: 60px 0;
+  background-color: $background-color;
+  height: 50%;
+  .banking-logo {
+    width: 130px;
+  }
+  h3 {
+    font-size: 27px;
+    margin: 20px;
+    color: white;
+    text-transform: uppercase;
+  }
+}
+.login-container-box {
+  height: 50%;
+  .login {
+    padding: 30px;
+    margin: auto;
+    max-width: 320px;
+    .login-btn{
+      margin-top: 20px;
+    }
+  }
+  .forgot-pass {
+    padding: 15px;
+    a {
+      letter-spacing: 1px;
+      color: #535fea;
+      line-height: 15px;
+    }
+  }
+}

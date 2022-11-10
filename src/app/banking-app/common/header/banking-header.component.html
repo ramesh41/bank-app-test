@@ -1,0 +1,16 @@
+<section class="banking-header text-center">
+  <div class="text-center">
+    <img class="user-pro" alt="user image"
+    src='../../../../assets/boy.png'/>
+  </div>
+  <div class="text-center user-title">
+    <label style="font-size: 18px;">{{userDetails.userName}}</label>
+    <b><p>{{userDetails.desination}}</p></b>
+    <p>{{userDetails.userId}}</p>
+  </div>
+  <div class="text-center payment-balance">
+    <label class="balance-label">Balance</label>
+    <span class="amount-label">{{userDetails.balalnceAmount | currency: '' : 'symbol':'3.2-2'}}</span>
+    <ion-button class="transfer-btn" routerLink='/fund-transfer'>Transfer</ion-button>
+  </div>
+</section>

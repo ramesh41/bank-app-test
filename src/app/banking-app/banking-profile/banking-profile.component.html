@@ -1,0 +1,12 @@
+<app-banking-header></app-banking-header>
+<section class="latest-transaction">
+  <h5 class="text-center latest-payment-title">Latest Transactions</h5>
+  <div class="payment-container">
+  <ion-item class="payment-history" *ngFor="let item of latestTransactionHistory">
+    <img src="../../../assets/man.png" class="user-transaction-icons">
+    <ion-label>{{item.userName}}
+      <p>{{item.paymentMethod}}</p></ion-label>
+    {{item.amount | currency: '' : 'symbol':'3.2-2'}}
+  </ion-item>
+</div>
+</section>

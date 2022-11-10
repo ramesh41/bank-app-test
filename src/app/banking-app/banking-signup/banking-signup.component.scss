@@ -1,0 +1,44 @@
+$background-color: rgb(44 69 120);
+
+.sign-up-header {
+  padding: 30px 0;
+  background-color: $background-color;
+  .sub-title {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+  }
+}
+.sign-up {
+  padding: 30px;
+  margin: auto;
+  max-width: 320px;
+  .term-condition {
+    margin-top: 20px;
+    .term-condition-body {
+      font-size: 12px;
+      p {
+        padding: 0 0px 0 25px;
+        position: relative;
+        top: -37px;
+      }
+    }
+    .term-condition-checkbox {
+      margin: 0;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .btn-box {
+    margin: 0;
+  }
+  .password-hint{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #535fea;
+  }
+}
+
+.checkbox-icon {
+  border-color: #fff !important;
+}

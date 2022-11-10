@@ -1,0 +1,28 @@
+<section class="text-center banking-container">
+  <h3>Welcome!</h3>
+  <img src="./assets/bank-128.png" alt="logo" class="banking-logo" />
+</section>
+<section class="text-center login-container-box">
+  <form class="login" [formGroup]="bankingLoginForm" (keyup.enter)="userLogin()">
+    <p *ngIf="errorMessage" style="text-align: left; color: red">{{errorMessage}}</p>
+    <ion-input placeholder="Username or Email" formControlName="email"
+    [ngClass]="{ 'is-invalid': submitted && getLoginFormControl.email.errors }"
+    ></ion-input>
+    <div *ngIf="submitted && getLoginFormControl.email.errors">
+      <app-validation-message *ngIf="getLoginFormControl.email.errors.required" [errorMessages]="fieldValidationErrorList.email.required"></app-validation-message>
+      <app-validation-message *ngIf="getLoginFormControl.email.errors.email" [errorMessages]="fieldValidationErrorList.email.pattern"></app-validation-message>
+    </div>
+    <ion-input type='password' placeholder="Password" formControlName="password"
+    [ngClass]="{ 'is-invalid': submitted && getLoginFormControl.password.errors }"
+    ></ion-input>
+    <div *ngIf="submitted && getLoginFormControl.password.errors">
+      <app-validation-message *ngIf="getPassword.errors.required" [errorMessages]="fieldValidationErrorList.password.required"></app-validation-message>
+      <app-validation-message *ngIf="getPassword.errors.pattern" [errorMessages]="fieldValidationErrorList.password.pattern"></app-validation-message>
+    </div>
+    <ion-button class="login-btn" (click)="userLogin()">Log In</ion-button>
+    <div class="forgot-pass">
+      <a class="forgot-email-link" routerLink="" *ngIf="">Forgot Your Password?</a>
+      <p>New to Bank App? <a class="register-email-link" routerLink="/banking-signup">Sign Up</a></p>
+    </div>
+  </form>
+</section>

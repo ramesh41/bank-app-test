@@ -1,0 +1,62 @@
+<section class="text-center sign-up-header">
+  <header>
+    <img src="./assets/bank-128.png" alt="logo" class="banking-logo" />
+    <p class="sub-title">Connect to your bank account</p>
+  </header>
+</section>
+<section>
+  <form class="sign-up" [formGroup]="registerBankingAccount">
+    <ion-input
+      placeholder="Your Name"
+      formControlName="username"
+      [ngClass]="{
+        'is-invalid': submitted && getSignupFormControl.username.errors
+      }"
+    ></ion-input>
+    <div *ngIf="submitted && getSignupFormControl.username.errors">
+      <app-validation-message *ngIf="getSignupFormControl.username.errors.required" [errorMessages]="fieldValidationErrorList.email.required"></app-validation-message>
+    </div>
+    <ion-input
+      placeholder="Bank Account"
+      formControlName="bankAccount"
+      [ngClass]="{
+        'is-invalid': submitted && getSignupFormControl.bankAccount.errors
+      }"
+    ></ion-input>
+    <div *ngIf="submitted && getSignupFormControl.bankAccount.errors">
+      <app-validation-message *ngIf="getSignupFormControl.bankAccount.errors.required" [errorMessages]="fieldValidationErrorList.bankAccountNumber.required"></app-validation-message>
+    </div>
+    <ion-input
+      placeholder="Email"
+      formControlName="email"
+      [ngClass]="{
+        'is-invalid': submitted && getSignupFormControl.email.errors
+      }"
+    ></ion-input>
+    <div *ngIf="submitted && getSignupFormControl.email.errors">
+      <app-validation-message *ngIf="getSignupFormControl.email.errors.required" [errorMessages]="fieldValidationErrorList.email.required"></app-validation-message>
+      <app-validation-message *ngIf="getSignupFormControl.email.errors.email" [errorMessages]="fieldValidationErrorList.email.pattern"></app-validation-message>
+    </div>
+    <ion-input placeholder="Password" formControlName="password"
+    [ngClass]="{ 'is-invalid': submitted && getSignupFormControl.password.errors }"
+    ></ion-input>
+    <div *ngIf="submitted && getSignupFormControl.password.errors">
+      <app-validation-message *ngIf="getSignupFormControl.password.errors.required" [errorMessages]="fieldValidationErrorList.password.required"></app-validation-message>
+      <app-validation-message *ngIf="getSignupFormControl.password.errors.pattern" [errorMessages]="fieldValidationErrorList.password.pattern"></app-validation-message>
+    </div>
+    <div class="password-hint"> Use 12 characters long. Has a combination of upper and lowercase letters, numbers, special symbols.</div>
+    <div class="term-condition">
+      <label class="term-condition-body">
+        <input type="checkbox" class="term-condition-checkbox">
+      <p>By Signing up, you agree to Bank's Term of Use & Privacy Policy.</p></label>
+    </div>
+
+    <div class="text-center btn-box">
+      <ion-button class="login-btn" (click)="registerUserAccount()"
+        >Sign up</ion-button
+      >
+      or
+      <ion-button class="login-btn" routerLink="/banking">Cancel</ion-button>
+    </div>
+  </form>
+</section>
