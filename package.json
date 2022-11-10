@@ -30,7 +30,7 @@
     "ionicons": "^6.0.3",
     "ng-otp-input": "^1.8.5",
     "ngx-barcode": "^0.3.0",
-    "node-sass": "^7.0.1",
+    "node-sass": "8",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
