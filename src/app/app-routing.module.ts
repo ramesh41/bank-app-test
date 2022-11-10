@@ -6,12 +6,18 @@ import { TransactionScannerComponent } from './banking-app/transaction-scanner/t
 import { TransferTransactionComponent } from './banking-app/transfer-transaction/transfer-transaction.component';
 import { WelcomeBankingComponent } from './banking-app/welcome-banking/welcome-banking.component';
 import { AuthGuard } from './banking-app/shared/shared/auth.guard';
+import { ForgotPasswordComponent } from './banking-app/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
     path: 'banking',
     component: WelcomeBankingComponent,
     data: { animationState: 'bankingLogin' }
+  },
+  {
+    path: 'forgotPass',
+    component: ForgotPasswordComponent,
+    data: { animationState: 'bankingForgotPass' }
   },
   {
     path: 'banking-signup',
@@ -47,11 +53,6 @@ const routes: Routes = [
   }
 ];
 
-/*{
-  path: 'home',
-  loadChildren: () =>
-    import('./home/home.module').then((m) => m.HomePageModule),
-}*/
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),

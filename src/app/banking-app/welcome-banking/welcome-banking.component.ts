@@ -58,6 +58,7 @@ export class WelcomeBankingComponent implements OnInit {
     this.bankingAuth.userCredentialchecks(usrCredOnj).subscribe((loggedResdata: any)=>{
       if(loggedResdata.refreshToken && loggedResdata.idToken){
          sessionStorage.setItem('isLoggedIn', 'true');
+         sessionStorage.setItem('token_id', loggedResdata.idToken);
          this.route.navigate(['/transactions']);
       }
     }, err=>{

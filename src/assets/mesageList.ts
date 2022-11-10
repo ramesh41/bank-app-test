@@ -37,4 +37,13 @@ export const ERROR_MESSAGES = {
         'if the password contains the date of someone\'s birthday, one might enter the name of the person as the hint',
     },
   },
+
+  forgotPassword: {
+    email: {
+      required: 'Email Address is required.',
+      minLength: 'Email length should be 5 charaters.',
+      pattern:
+        'Enter a valid email address”, you missed the “@” character — “Enter a valid email address.',
+    }
+  }
 };

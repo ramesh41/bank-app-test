@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -16,11 +16,28 @@ export class UserSignupService {
       password: userPass,
       returnSecureToken: true,
     };
-    return this.http
-      .post(environment.signUpURL + environment.apiKey, signUpReq);
-      //.pipe(retry(1), catchError(this.handleError));
+    return this.http.post(
+      environment.signUpURL + environment.apiKey,
+      signUpReq
+    );
+    //.pipe(retry(1), catchError(this.handleError));
   }
 
+  getRegisteredUserInfo(tokenId: string) {
+    return this.http
+      .post(environment.getUserInfoURL + environment.apiKey, {
+        idToken: tokenId,
+      })
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  forgotUserPassword(emailId: string){
+    return this.http.post(environment.forgotPassURL + environment.apiKey, {
+      email: emailId,
+      requestType: 'PASSWORD_RESET'
+    })
+    .pipe(retry(1), catchError(this.handleError));
+  }
   handleError(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

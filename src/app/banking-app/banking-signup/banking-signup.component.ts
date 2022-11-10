@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserSignupService } from '../shared/user-signup.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ERROR_MESSAGES } from 'src/assets/mesageList';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-banking-signup',
@@ -15,8 +16,8 @@ export class BankingSignupComponent implements OnInit {
 
   constructor(
     private userSignUpService: UserSignupService,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private route: Router) {}
 
   ngOnInit() {
     this.registerBankingAccount = this.fb.group({
@@ -37,13 +38,19 @@ export class BankingSignupComponent implements OnInit {
       return;
     }
     console.log('******', this.submitted);
-    if (!this.submitted) {
-      this.userSignUpService
-        .userSignup(this.registerBankingAccount.controls.email.value, this.registerBankingAccount.controls.password.value)
-        .subscribe((reqData) => {
-          console.log(reqData);
+
+    this.userSignUpService
+      .userSignup(
+        this.registerBankingAccount.controls.email.value,
+        this.registerBankingAccount.controls.password.value
+      )
+      .subscribe((reqData: any) => {
+        if(reqData.email){
+          sessionStorage.setItem('emailId', this.registerBankingAccount.controls.email.value);
+          this.route.navigate(['/banking']);
         }
-      );
-    }
+      }, err =>{
+        console.log('User Registration', err);
+      });
   }
 }

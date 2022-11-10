@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserSignupService } from '../../shared/user-signup.service';
 
 @Component({
   selector: 'app-banking-header',
@@ -8,22 +9,31 @@ import { Router } from '@angular/router';
 })
 export class BankingHeaderComponent implements OnInit {
   userDetails: any;
-  constructor(private route: Router) {
-    this.userDetails =
-      {
-        userName: 'Ramesh Bhardwaj',
-        desination: 'Senior Consultant C1',
-        userId: 'ramesh.synclovis41@gmail.com ',
-        mobileNumber: 9513278988,
-        balalnceAmount: 47500
-      };
+  constructor(private route: Router, private user: UserSignupService) {
+    this.userDetails = {
+      userName: 'Ramesh Bhardwaj',
+      desination: 'Senior Consultant C1',
+      mobileNumber: 9513278988,
+      balalnceAmount: 47500,
+    };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const getTokenId = sessionStorage.getItem('token_id');
+    this.user.getRegisteredUserInfo(getTokenId).subscribe(
+      (data: any) => {
+        this.userDetails.userId = data.users[0].email;
+        console.log(this.userDetails);
+        console.log(data.users[0].email);
+      },
+      (err) => {
+        console.log('GET USER ERROR ', err);
+      }
+    );
+  }
 
-  logout(){
+  logout() {
     sessionStorage.removeItem('isLoggedIn');
     this.route.navigate(['/banking']);
   }
-
 }
