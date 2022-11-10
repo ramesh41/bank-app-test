@@ -1,1 +1,2 @@
-# bank-app-test
+# ionic-angular-app
+ionic-angular-app

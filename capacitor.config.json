@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ramesh-ionic-app",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
